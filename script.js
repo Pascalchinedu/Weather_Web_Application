@@ -23,7 +23,7 @@ setInterval(() => {
     const hour = time.getHours();
     const hoursIn12HrFormat = hour >= 13 ? hour %12: hour
     const minutes = time.getMinutes();
-    const ampm = hour >=12 ? 'AM' : 'PM'
+    const ampm = hour >=12 ? 'PM' : 'AM'
 
     timeEl.innerHTML = (hoursIn12HrFormat < 10? '0'+hoursIn12HrFormat : hoursIn12HrFormat) + ':' + (minutes < 10? '0'+minutes: minutes)+ ' ' + `<span id="am-pm">${ampm}</span>`
 
@@ -68,11 +68,11 @@ function showWeatherData (data){
         <div>${wind_speed}</div>
     </div>
     <div class="weather-item">
-        <div>Sunset</div>
+        <div>Sunrise</div>
         <div>${window.moment(sunrise * 1000).format('HH:mm a')}</div>
     </div>
     <div class="weather-item">
-        <div>Sunrise</div>
+        <div>Sunset</div>
         <div>${window.moment(sunset*1000).format('HH:mm a')}</div>
     </div>
     
