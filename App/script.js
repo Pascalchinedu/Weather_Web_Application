@@ -70,11 +70,11 @@ function showWeatherData (data){
         <div>${wind_speed}</div>
     </div>
     <div class="weather-item">
-        <div>Sunset</div>
+        <div>Sunrise</div>
         <div>${window.moment(sunset * 1000).format('HH:mm a')}</div>
     </div>
     <div class="weather-item">
-        <div>Sunrise</div>
+        <div>Sunset</div>
         <div>${window.moment(sunrise*1000).format('HH:mm a')}</div>
     </div>
     
