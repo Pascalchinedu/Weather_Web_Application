@@ -1,4 +1,5 @@
 // Getting all the data element
+
 const timeEl = document.getElementById('time');
 const dateEl = document.getElementById('date');
 const currentWeatherItemsEl = document.getElementById('current-weather-items');
@@ -8,29 +9,32 @@ const weatherForecastEl = document.getElementById('weather-forecast');
 const currentTempEl = document.getElementById('current-temp');
 
 // Declaring array for months and days
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednessday', 'Thursday', 'Friday', 'Saturday'];
+
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-//Declraring API_KEY
-const API_KEY = '49cc8c821cd2aff9af04c9f98c36eb74';
-// Updating the current time with setInterval Function
+// Declaring API_KEY
+const API_KEY ='49cc8c821cd2aff9af04c9f98c36eb74';
 
+// Interval Function to get current time of position
 setInterval(() => {
     const time = new Date();
     const month = time.getMonth();
     const date = time.getDate();
     const day = time.getDay();
     const hour = time.getHours();
-    const hoursIn12HrFormat = hour >= 13 ? hour %11 : hour
+    const hoursIn12HrFormat = hour >= 13 ? hour %11: hour
     const minutes = time.getMinutes();
     const ampm = hour >=12 ? 'AM' : 'PM'
 
-    timeEl.innerHTML = (hoursIn12HrFormat < 10? '0'+hoursIn12HrFormat : hoursIn12HrFormat) + ':' + (minutes < 10? '0'+minutes: minutes)+ ' ' + `<span id="am-pm">${ampm}</span>` 
-    dateEl.innerHTML = days[day] + ', ' + date + ' ' + months[month] 
+    timeEl.innerHTML = (hoursIn12HrFormat < 10? '0'+hoursIn12HrFormat : hoursIn12HrFormat) + ':' + (minutes < 10? '0'+minutes: minutes)+ ' ' + `<span id="am-pm">${ampm}</span>`
+
+    dateEl.innerHTML = days[day] + ', ' + date+ ' ' + months[month]
+
 }, 1000);
 
-// Function to get current weather data with one call API
 
+// Function to get weather data and accesss current location of user
 getWeatherData()
 function getWeatherData () {
     navigator.geolocation.getCurrentPosition((success) => {
@@ -50,9 +54,9 @@ function showWeatherData (data){
     let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
 
     timezone.innerHTML = data.timezone;
-    countryEl.innerHTML = data.lat + 'N' + data.lon+'E'
+    countryEl.innerHTML = data.lat + 'N ' + data.lon+'E'
 
-    currentWeatherItemsEl.innerHTML =
+    currentWeatherItemsEl.innerHTML = 
     `<div class="weather-item">
         <div>Humidity</div>
         <div>${humidity}%</div>
@@ -66,13 +70,15 @@ function showWeatherData (data){
         <div>${wind_speed}</div>
     </div>
     <div class="weather-item">
-        <div>Sunrise</div>
-        <div>${window.moment(sunrise * 1000).format('HH:mm a')}</div>
+        <div>Sunset</div>
+        <div>${window.moment(sunset * 1000).format('HH:mm a')}</div>
     </div>
     <div class="weather-item">
-        <div>Sunset</div>
-        <div>${window.moment(sunset* 1000).format('HH:mm a')}</div>
-    </div>   
+        <div>Sunrise</div>
+        <div>${window.moment(sunrise*1000).format('HH:mm a')}</div>
+    </div>
+    
+    
     `;
 
     let otherDayForcast = ''
@@ -102,6 +108,4 @@ function showWeatherData (data){
 
 
     weatherForecastEl.innerHTML = otherDayForcast;
-
 }
-showWeatherData(data);
