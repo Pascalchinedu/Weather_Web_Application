@@ -1,5 +1,4 @@
 // Getting all the data element
-
 const timeEl = document.getElementById('time');
 const dateEl = document.getElementById('date');
 const currentWeatherItemsEl = document.getElementById('current-weather-items');
@@ -9,23 +8,22 @@ const weatherForecastEl = document.getElementById('weather-forecast');
 const currentTempEl = document.getElementById('current-temp');
 
 // Declaring array for months and days
-
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-// Declaring API_KEY
+// Declaring API_KE
 const API_KEY ='49cc8c821cd2aff9af04c9f98c36eb74';
 
-// Interval Function to get current time of position
+// Function to get weather data and accesss current location of user
 setInterval(() => {
     const time = new Date();
     const month = time.getMonth();
     const date = time.getDate();
     const day = time.getDay();
     const hour = time.getHours();
-    const hoursIn12HrFormat = hour >= 13 ? hour %11: hour
+    const hoursIn12HrFormat = hour >= 13 ? hour %12: hour
     const minutes = time.getMinutes();
-    const ampm = hour >=12 ? 'AM' : 'PM'
+    const ampm = hour >=12 ? 'PM' : 'AM'
 
     timeEl.innerHTML = (hoursIn12HrFormat < 10? '0'+hoursIn12HrFormat : hoursIn12HrFormat) + ':' + (minutes < 10? '0'+minutes: minutes)+ ' ' + `<span id="am-pm">${ampm}</span>`
 
@@ -33,8 +31,7 @@ setInterval(() => {
 
 }, 1000);
 
-
-// Function to get weather data and accesss current location of user
+// Getting user location
 getWeatherData()
 function getWeatherData () {
     navigator.geolocation.getCurrentPosition((success) => {
@@ -50,6 +47,7 @@ function getWeatherData () {
     })
 }
 
+// Updating current forecast
 function showWeatherData (data){
     let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
 
@@ -70,12 +68,12 @@ function showWeatherData (data){
         <div>${wind_speed}</div>
     </div>
     <div class="weather-item">
-        <div>Sunrise</div>
-        <div>${window.moment(sunset * 1000).format('HH:mm a')}</div>
+        <div>Sunset</div>
+        <div>${window.moment(sunrise * 1000).format('HH:mm a')}</div>
     </div>
     <div class="weather-item">
-        <div>Sunset</div>
-        <div>${window.moment(sunrise*1000).format('HH:mm a')}</div>
+        <div>Sunrise</div>
+        <div>${window.moment(sunset*1000).format('HH:mm a')}</div>
     </div>
     
     
