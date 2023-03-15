@@ -47,7 +47,7 @@ function getWeatherData () {
     })
 }
 
-// Updating current forecast
+// Updating current fore-cast of location
 function showWeatherData (data){
     let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
 
