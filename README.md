@@ -17,5 +17,5 @@ The project description can be found in the [Google Slide](https://docs.google.c
      </div>
 </div>
 
-## Application 
-[Weather Wev App](https://weather-web-application-ne3p45sp4-pascalchinedu.vercel.app/)
+# Application 
+[Weather-Web-App](https://weather-web-application-ne3p45sp4-pascalchinedu.vercel.app/)
