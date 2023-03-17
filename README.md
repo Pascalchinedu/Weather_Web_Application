@@ -5,7 +5,7 @@ A program that uses open weather API to give current weather report of your loca
   - HTML
   - CSS
   - JAVASCRIPT
-  - VERCEL (A cloud platform where the project was deployed).
+  - [VERCEL](https://vercel.com/home) (A cloud platform where the project was deployed).
 
 ## Project Decription 
 The project description can be found in the [Google Slide](https://docs.google.com/presentation/d/1YioKP2jSoejZb6KvlINCkHuQDWSTXJ8_gzkV1wQozk8/edit?usp=sharing)
@@ -16,3 +16,6 @@ The project description can be found in the [Google Slide](https://docs.google.c
           <img src="https://user-images.githubusercontent.com/99515673/225871316-8aa48ae7-b092-458c-ba8f-f4be2af1da59.png" width="800"/>
      </div>
 </div>
+
+## Application 
+[Weather Wev App](https://weather-web-application-ne3p45sp4-pascalchinedu.vercel.app/)
