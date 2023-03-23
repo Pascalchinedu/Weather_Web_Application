@@ -18,4 +18,4 @@ The project description can be found in the [Google Slide](https://docs.google.c
 </div>
 
 # Application 
-[Weather-Web-App](https://weather-web-application-ne3p45sp4-pascalchinedu.vercel.app/)
+[Weather-Web-App](https://weather-web-application-zeta.vercel.app/)
